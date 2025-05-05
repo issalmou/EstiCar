@@ -317,7 +317,7 @@ function afficher_prix(price) {
 function convertCentimes() {
 	const priceElement = document.getElementById('prix');
 	let price = parseFloat(priceElement.innerText);
-	priceElement.innerText = `${Math.round(price * 20)} centimes`;
+	priceElement.innerText = `${Math.round(price * 100)} centimes`;
 	let btn = document.getElementById('btn2')
 	btn.innerText = 'Convertir en Dirham'
 	btn.onclick = convertDh;
@@ -326,7 +326,7 @@ function convertCentimes() {
 function convertDh() {
 	const priceElement = document.getElementById('prix');
 	let price = parseFloat(priceElement.textContent.split(' centimes')[0]);
-	priceElement.innerText = `${Math.round(price / 20)} DH`;
+	priceElement.innerText = `${Math.round(price / 100)} DH`;
 	let btn = document.getElementById('btn2')
 	btn.innerText = 'Convertir en centimes'
 	btn.onclick = convertCentimes;
