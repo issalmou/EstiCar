@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+/* Conteneur de la carte */
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 300px; /* Hauteur minimale pour la carte */
+  padding: 1em 0;
+  perspective: 50em;
+}
+
+/* Style pour la carte */
+.card {
+  position: relative;
+  width: 80%; /* Utilise un pourcentage pour s'adapter à l'écran */
+  max-width: 400px; /* Largeur maximale de la carte */
+  height: 80%; /* Ajuste la hauteur en fonction de la largeur */
+  max-height: 400px; /* Hauteur maximale de la carte */
+  padding: 3em;
+  color: #fff;
+  background-color: #f8f8f8; /* Extérieur de la carte en #f8f8f8 */
+  transform: rotateY(30deg) rotateX(15deg);
+  transform-style: preserve-3d;
+  transition: transform 1s ease, width 1s, height 1s;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  
+  /* Animation de rotation 360° avec pause à la fin */
+  animation: rotate360 2s ease-in-out forwards;
+}
+
+/* Animation de rotation 360 degrés depuis l'intérieur */
+@keyframes rotate360 {
+  
+  100% {
+    transform: rotateY(360deg) rotateX(0deg); /* Rotation complète jusqu'à 360° */
+  }
+}
+
+/* Effet au survol de la carte */
+.card:hover {
+  transform: rotateY(-25deg) rotateX(-15deg);
+}
+
+/* Couches de la carte (pour l'effet 3D) */
+.layers {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: -1;
+}
+
+/* Style des couches de la carte */
+.layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1em;
+  background-image: var(--bi);
+  background-color: #EF4444; /* Applique cette couleur aux faces intérieures */
+  transform: translateZ(var(--tz));
+  box-shadow: 0 0 0.5em #000d inset;
+}
+
+/* Appliquer un effet d'ombre sur la dernière couche */
+.layer:last-child {
+  box-shadow: 0 0 0.5em #000d inset, 0 0 5px #EF4444;
+}
+
+/* Création de l'effet de couches superposées avec profondeur */
+.layer:nth-child(1) { --tz: -4px; }
+.layer:nth-child(2) { --tz: -8px; }
+.layer:nth-child(3) { --tz: -12px; }
+.layer:nth-child(4) { --tz: -16px; }
+.layer:nth-child(5) { --tz: -20px; }
+.layer:nth-child(6) { --tz: -24px; }
+.layer:nth-child(7) { --tz: -28px; }
+.layer:nth-child(8) { --tz: -32px; }
+.layer:nth-child(9) { --tz: -36px; }
+.layer:nth-child(10) { --tz: -40px; }
+
+/* Répétition des lignes pour chaque enfant dans le background */
+.card-container:nth-child(1) {
+  --bi: repeating-linear-gradient(30deg, #ffe5dd 0 0.25em, #EF4444 0 1em);
+}
+
+.card-container:nth-child(2) {
+  --bi: linear-gradient(#FFE5DD 5em, #EF4444 3em), linear-gradient(60deg, #EF4444, #EF4444);
+}
+
+/* Responsiveness pour les tablettes */
+@media (max-width: 768px) {
+  .card-container {
+    min-height: 250px;
+  }
+
+  .card {
+    padding: 1.5em;
+    width: 90%; /* Ajuster la largeur sur les petits écrans */
+    height: 90%; /* Ajuster la hauteur sur les petits écrans */
+  }
+
+  .card h2 {
+    font-size: 16px; /* Taille de police ajustée pour la tablette */
+  }
+
+  .card p {
+    font-size: 14px; /* Taille de police ajustée pour la tablette */
+  }
+}
+
+/* Responsiveness pour les mobiles */
+@media (max-width: 480px) {
+  .card-container {
+    min-height: 200px;
+  }
+
+  .card {
+    padding: 1em;
+    width: 95%; /* Ajuster la largeur pour les écrans mobiles */
+    height: 95%; /* Ajuster la hauteur pour les écrans mobiles */
+  }
+
+  .card h2 {
+    font-size: 14px; /* Taille de police ajustée pour le mobile */
+  }
+
+  .card p {
+    font-size: 12px; /* Taille de police ajustée pour le mobile */
+  }
+}
+#prix{
+  color: #EF4444;
+}
