@@ -378,9 +378,7 @@ function list_voiture(data, j) {
 	`
 }
 function get_voiture_similaire(localisation = null, marque = null, modele = null) {
-	const url = 'https://isalmoad-esticar-api.hf.space/list_voiture_similaire';
-	console.log(localisation,marque,modele);
-	
+	const url = 'https://isalmoad-esticar-api.hf.space/list_voiture_similaire';	
 	fetch(url, {
 		method: (localisation == null && marque == null && modele == null) ? 'GET' : 'POST',
 		headers: { 'Content-Type': 'application/json' },
