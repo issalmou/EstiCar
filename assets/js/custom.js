@@ -432,7 +432,6 @@ function generateCarItem(data, j) {
 						✔ Modèle : <span>${data.Modèle ? data.Modèle : 'non spécifié'}</span><br>
 						✔ Année-Modèle : <span>${data.Année_Modèle ? data.Année_Modèle : 'non spécifié'}</span><br>
 						✔ Type de carburant : <span>${data.Type_de_carburant ? data.Type_de_carburant : 'non spécifié'}</span><br>
-						✔ Boîte de vitesses : <span>${data.Boîte_de_vitesses ? data.Boîte_de_vitesses : 'non spécifié'}</span><br>
 					</p>
 					<button class="welcome-btn new-cars-btn" onclick="window.location.href=&quot;${data.URL ? data.URL : '/'}&quot;">
 						view details
